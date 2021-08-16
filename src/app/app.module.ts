@@ -7,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
 
-
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
@@ -28,6 +27,8 @@ import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './category.service';
 import { ProductService } from './product.service';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,8 @@ import { ProductService } from './product.service';
     AdminProductsComponent,
     AdminOrdersComponent,
     ProductFormComponent,
+    ProductFilterComponent,
+    ProductCardComponent,
     
   ],
   imports: [
@@ -53,7 +56,7 @@ import { ProductService } from './product.service';
     AngularFireDatabaseModule,
     NgbModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: ProductsComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent }, 
       { path: 'login', component: LoginComponent },
@@ -66,9 +69,6 @@ import { ProductService } from './product.service';
       { path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuardService] },
       { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService] },
       { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService] },
-
-
-
 
     ])
   ],
