@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/category.service';
 import { ProductService } from 'src/app/product.service';
-import { filter, take, takeUntil } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { Product } from './../../models/product';
+import {  take } from 'rxjs/operators';
+
 
 
 @Component({
