@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 import { Product } from './models/product';
-import {  take } from 'rxjs/operators';
+import {  take, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ShoppingCart } from './models/shopping-cart';
 
@@ -20,9 +20,10 @@ export class ShoppingCartService {
     });
   }
 
-   async getCart(): Promise<AngularFireObject<ShoppingCart>>{
+   async getCart(): Promise<Observable<ShoppingCart>>{
     let cartId = await this.getOrCreateCartId();
-    return this.db.object('/shopping-carts/' + cartId);
+    return this.db.object('/shopping-carts/' + cartId).valueChanges()
+    .pipe(map((x: any) => new ShoppingCart(x.items)));
   }
 
   private getItem(cartId: string, productId: string){
@@ -46,13 +47,13 @@ export class ShoppingCartService {
     let item$ = this.getItem(cartId, product.key);
     item$.snapshotChanges().pipe(take(1)).subscribe((item: any) =>{  
 
-    // if(item.key === null){
-    //  item$.set({product: product, quantity: 1});
-    //  console.log('adding new product to cart');        
-    // }
-    //  else {
+    if(item.key === null){
+     item$.set({product: product, quantity: 1});
+     console.log('adding new product to cart');        
+    }
+     else {
       item$.update({ quantity: (item.payload.val().quantity || 0) + 1 });
-     // }
+      }
     });
   }
   async removeFromCart(product: Product){
