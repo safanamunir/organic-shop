@@ -1,18 +1,22 @@
 <h1>Shopping Cart</h1>
-<div class="row col-6"  *ngIf="cart$ | async as cart">
+<div class="row col-10"  *ngIf="cart$ | async as cart">
     <p>You have {{ cart.totalItemsCount }}  items in your cart.</p>
 
 <table class="table">
     <thead>
         <tr>
-            <th style="text-align: left;">Product</th>
-            <th class="text-center" style="width: 250px; text-align: center;">Quantity</th>
+            <th></th>
+            <th >Product</th>
+            <th class="text-center" style="width: 220px; text-align: center;">Quantity</th>
             <th  style="width: 200px; text-align: right;">Price</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let item of cart.items">
-            <td style="text-align: left;">
+            <td>
+                <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail"></div>
+            </td>
+            <td >
                 {{ item.title }}
             </td>
             <td class="text-center">
@@ -25,6 +29,7 @@
     </tbody>
     <tfoot>
         <tr>
+            <th></th>
             <th></th>
             <th></th>
             <th style="text-align: right;">
