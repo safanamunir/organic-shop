@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+$primary-color: green;
+$primary-color-hover: green;
+
+body{
+    padding-top: 60px;
+}
+.navbar { 
+    border-bottom: 3px solid #e7e7e7;
+  }
+
+.list-group-item.active {
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+.btn-primary :hover, .btn-primary , .btn-sm :hover{
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+
+.btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+.btn-primary:disabled, .btn-primary.disabled {
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+.form-control{
+    border: 1px solid $primary-color;
+}
+.navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
+    color: $primary-color-hover;
+}
+
+.navbar-light .navbar-brand {
+    color: $primary-color;
+}
+.form-control:focus {
+    border-color: $primary-color;
+  }

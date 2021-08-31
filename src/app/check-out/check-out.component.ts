@@ -15,7 +15,7 @@ import { ShoppingCartService } from '../shopping-cart.service';
 })
 export class CheckOutComponent implements OnInit, OnDestroy {
   cart: ShoppingCart;
-  cartSubscription: Subscription;
+cartSubscription: Subscription;
 
   constructor(
     private authService: AuthService,

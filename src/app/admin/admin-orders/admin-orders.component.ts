@@ -7,14 +7,11 @@ import { OrderService } from 'src/app/order.service';
   templateUrl: './admin-orders.component.html',
   styleUrls: ['./admin-orders.component.css']
 })
-export class AdminOrdersComponent implements OnInit {
+export class AdminOrdersComponent {
 orders$: Observable<any>;
 
   constructor( orderService: OrderService) { 
     this.orders$ = orderService.getOrder();
-  }
-
-  ngOnInit(){
   }
 
 }

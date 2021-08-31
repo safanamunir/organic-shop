@@ -1,15 +1,13 @@
 <h1>Shopping Cart</h1>
-<div class="row col-10"  *ngIf="cart$ | async as cart">
-    <p>
-        You have {{ cart.totalItemsCount }}  items in your cart.
-        <button 
-        *ngIf="cart.items.length"
-        (click)="clearCart()"
-        class="btn btn-light btn-sm">
-        Clear ShoppingCart
+<div class="card" *ngIf="cart$ | async as cart" style="width: 80%;">
+    <div class="card-body">
+        <p>
+        You have {{ cart.totalItemsCount }} items in your shopping cart.
+        <button *ngIf="cart.items.length" (click)="clearCart()" class="float-end btn btn-light btn-sm">Clear Shopping Cart
         </button>
-    </p>
-
+        </p>
+    </div>
+<div class="table-responsive">
 <table class="table">
     <thead>
         <tr>
@@ -46,6 +44,7 @@
         </tr>
     </tfoot>
 </table>
+</div>
 <a 
 routerLink="/check-out"
 *ngIf="cart.items.length"

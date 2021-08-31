@@ -33,7 +33,7 @@
                 <div class="alert alert-danger" *ngIf="category.touched && category.invalid">Category is required</div>
             </div>
     
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label for="imageUrl">Image URL</label>
                 <input #imageUrl="ngModel"  [(ngModel)]="product.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url>
                 <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">

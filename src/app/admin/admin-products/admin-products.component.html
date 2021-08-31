@@ -38,7 +38,7 @@
 </data-table-column>
 </data-table> -->
 
-<table class="table">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Title</th>
@@ -49,7 +49,7 @@
     <tbody>
         <tr *ngFor="let p of filteredProducts">
             <td>{{p.title}}</td>
-            <td>{{p.price}}</td>
+            <td>{{p.price | currency: 'USD' : 'symbol'}}</td>
             <td>
                 <a [routerLink]="['/admin/products/',p.key]">Edit</a>
             </td>
