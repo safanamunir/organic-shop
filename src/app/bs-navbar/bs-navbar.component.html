@@ -1,5 +1,5 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light rounded" aria-label="Eleventh navbar example">
-    <div class="container-fluid">
+    <div class="container">
       <a class="navbar-brand" routerLink="/">O</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -9,7 +9,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" routerLink="/shopping-cart">
-              Shopping Cart
+              Shopping Cart              
               <span class="badge bg-warning text-dark rounded-pill" *ngIf="cart$ | async as cart">
                 {{ cart.totalItemsCount }}
               </span>            
